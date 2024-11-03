@@ -1,0 +1,23 @@
+.toolbar {
+	display: flex;
+	gap: 10px;
+	margin-bottom: 10px;
+	background-color: rgb(233, 233, 233);
+	padding: 16px;
+	border-radius: 10px;
+
+	button {
+		padding: 5px 10px;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		background: #fdfdfd;
+		border: none;
+		border-radius: 5px;
+		font-size: 18px;
+
+		&:hover {
+			background: #ddd;
+		}
+	}
+}

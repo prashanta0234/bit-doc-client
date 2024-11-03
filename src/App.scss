@@ -1,0 +1,30 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.app {
+	padding: 20px;
+	flex-grow: 1;
+}
+
+#editor {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 20px;
+}
+
+.page {
+	width: 794px;
+	height: 1123px;
+	border: 1px solid #ccc;
+	padding: 20px;
+	margin-bottom: 10px;
+	background: white;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+	overflow-wrap: break-word;
+	word-break: break-word;
+	page-break-after: always;
+	resize: none;
+}
