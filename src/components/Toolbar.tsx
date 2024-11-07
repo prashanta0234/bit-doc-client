@@ -1,19 +1,36 @@
 import React from "react";
 import { FaBold, FaItalic, FaUnderline } from "react-icons/fa";
 import "../styles/toolbar.scss";
-import { toolbarType } from "../types/toolbarType";
+import {
+	useBoldStore,
+	useItalicStore,
+	useUnderLineStore,
+} from "../zutand/zutandTextStyleStore";
 
-const Toolbar = ({ onFormat }: toolbarType) => {
+const Toolbar = () => {
+	const { toggleBold, isBold } = useBoldStore();
+	const { toggleItalic, isItalic } = useItalicStore();
+	const { toggleUnderLine, isUnderLine } = useUnderLineStore();
+
 	return (
 		<div>
 			<div className="toolbar">
-				<button onClick={() => onFormat("bold")}>
+				<button
+					onClick={() => toggleBold("bold")}
+					className={isBold ? "buttonToggle" : ""}
+				>
 					<FaBold />
 				</button>
-				<button onClick={() => onFormat("italic")}>
+				<button
+					onClick={() => toggleItalic("italic")}
+					className={isItalic ? "buttonToggle" : ""}
+				>
 					<FaItalic />
 				</button>
-				<button onClick={() => onFormat("underline")}>
+				<button
+					onClick={() => toggleUnderLine("underline")}
+					className={isUnderLine ? "buttonToggle" : ""}
+				>
 					<FaUnderline />
 				</button>
 			</div>
@@ -22,4 +39,3 @@ const Toolbar = ({ onFormat }: toolbarType) => {
 };
 
 export default Toolbar;
-export {};

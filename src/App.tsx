@@ -6,10 +6,7 @@ import Menubar from "./components/Menubar";
 const App: React.FC = () => {
 	const editorRef = useRef<HTMLDivElement>(null);
 	const [pages, setPages] = useState<number[]>([0]);
-
-	const handleFormat = (command: string) => {
-		document.execCommand(command, false);
-	};
+	const pageRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		if (!editorRef.current) return;
@@ -17,27 +14,39 @@ const App: React.FC = () => {
 		const observer = new ResizeObserver(() => {
 			const lastPage = editorRef.current?.lastElementChild as HTMLDivElement;
 			if (lastPage.scrollHeight > lastPage.clientHeight) {
-				setPages((prev) => [...prev, prev.length]); // Add a new page
+				setPages((prev) => [...prev, prev.length]);
 			}
 		});
 
 		observer.observe(editorRef.current);
+		if (pageRef.current) {
+			pageRef.current.focus();
+		}
 
 		return () => observer.disconnect();
+	}, []);
+
+	useEffect(() => {
+		if (pageRef.current) {
+			pageRef.current.focus();
+		}
 	}, []);
 
 	return (
 		<div className="app">
 			<Menubar />
-			<Toolbar onFormat={handleFormat} />
+			<Toolbar />
 			<div id="editor" ref={editorRef}>
 				{pages.map((_, index) => (
-					<textarea
+					<div
+						tabIndex={0}
 						key={index}
 						className="page"
 						contentEditable={true}
-						placeholder="Start typing..."
-					/>
+						area-placeholder="Start typing..."
+						style={{ whiteSpace: "pre-wrap" }}
+						ref={pageRef}
+					></div>
 				))}
 			</div>
 		</div>

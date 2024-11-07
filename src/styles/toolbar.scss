@@ -21,3 +21,15 @@
 		}
 	}
 }
+
+.buttonToggle {
+	padding: 5px 10px !important;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	background: #333 !important;
+	color: #fff !important;
+	border: none;
+	border-radius: 5px;
+	font-size: 18px;
+}
