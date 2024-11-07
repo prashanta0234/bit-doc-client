@@ -34,8 +34,17 @@ const App: React.FC = () => {
 
 	return (
 		<div className="app">
-			<Menubar />
-			<Toolbar />
+			<div
+				style={{
+					position: "sticky",
+					top: "0",
+					zIndex: "50",
+					backgroundColor: "white",
+				}}
+			>
+				<Menubar />
+				<Toolbar />
+			</div>
 			<div id="editor" ref={editorRef}>
 				{pages.map((_, index) => (
 					<div
