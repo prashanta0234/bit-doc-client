@@ -7,6 +7,7 @@ import {
 	useUnderLineStore,
 } from "../zutand/zutandTextStyleStore";
 import { ColorDropDown } from "./ColorDropDown";
+import TextAlignDropDown from "./TextAlignDropDown";
 
 const Toolbar = () => {
 	const { toggleBold, isBold } = useBoldStore();
@@ -41,6 +42,7 @@ const Toolbar = () => {
 				>
 					<FaItalic />
 				</button>
+				<div className="divider"> &nbsp;</div>
 				<button
 					onClick={() => toggleUnderLine("underline")}
 					className={isUnderLine ? "buttonToggle" : ""}
@@ -60,6 +62,9 @@ const Toolbar = () => {
 					title="Highlight text"
 					symbol="H"
 				/>
+				<div className="divider"> &nbsp;</div>
+
+				<TextAlignDropDown />
 			</div>
 		</div>
 	);

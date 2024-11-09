@@ -1,0 +1,21 @@
+.drop-down {
+	position: relative;
+	display: inline-block;
+	button {
+		height: 100%;
+	}
+}
+
+.text-align-class {
+	position: absolute;
+	background-color: rgb(247, 243, 243);
+	border: "1px solid #ccc";
+	border-radius: 5px;
+	padding: 5px 10px;
+	z-index: 1000;
+	display: flex;
+	gap: "8px";
+	button {
+		background-color: rgb(247, 243, 243);
+	}
+}
